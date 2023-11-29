@@ -1,12 +1,13 @@
-function App() {
+import Controller from "./components/Controller";
 
+function App() {
   return (
-    <>
-      <div className="text-2xl">
-        <div>Hello Balsamic</div>
-      </div>
-    </>
-  )
+    <div className="">
+      <>
+        <Controller />
+      </>
+    </div>
+  );
 }
 
 export default App
