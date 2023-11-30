@@ -29,21 +29,23 @@ cd balsamic # root directory of chat-system
 
 ## Installation
 
-To run the backend, navigate to the backend folder and install the necessary dependencies using pip:
+To run the frontend, navigate to the frontend folder and install the necessary dependencies using pip:
 
 ```bash
-cd backend
+cd frontend-react
 pip install -r requirements.txt
 ```
 
 To run the frontend, navigate to the frontend folder and install the necessary dependencies using yarn:
 
 ```bash
-yarn create vite # framework React and variant Typescript
 cd frontend-react
+yarn create vite . # framework React and variant Typescript
 yarn add axios # API routing
+yarn add react-media-recorder # voice recording chat
 yarn build # for production
 yarn dev # to run on localhost http://localhost:5173/
+yarn preview # to run on localhost http://localhost:4173/
 ```
 
 ```bash
@@ -69,20 +71,34 @@ yarn dev # to run on localhost http://localhost:5173/
 Then, you can start the server by running the following command in your terminal or command prompt from within the `backend` directory:
 
 
+```bash
+python3 -m venv venv
+source venv/bin/activate # mac Python 3
+./venv/Scripts/activate # windows Python 3
+pip install python-decouple==3.8 python-multipart==0.0.6
+pip install requests==2.28.2 fastapi==0.92.0
+pip install uvicorn[standard]
+uvicorn main:app --reload # development mode
+```
+
+
 ## Usage
 First, start the backend server by running:
 
 ```bash
-python app.py
+uvicorn main:app --reload
+# python app.py
 ```
 
 Then, start the frontend server by running:
 
 ```bash
-npm start
+yarn dev
+# yarn start
 ```
 
-You can now access the chat application at http://localhost:3000.
+You can now access the chat application at http://localhost:5173.
+You can now access the API at http://localhost:8000.
 
 Follow the instructions in the README file to set up and run the project.
 
