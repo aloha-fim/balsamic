@@ -66,6 +66,7 @@ venv
 *#
 .#*
 *.pkl
+*.mp3
 
 /src/mongo/*/*Debug*/
 /src/mongo/*/*/*Debug*/
