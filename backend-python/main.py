@@ -29,6 +29,7 @@ origins = [
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:4173",
+    "http://localhost:4174",
     "http://localhost:3000",
 ]
 
@@ -54,6 +55,16 @@ async def check_health():
 async def reset_conversation():
     reset_messages()
     return {"response": "conversation reset"}
+
+# test get audio with convert_audio_to_text to activate whisper
+@app.get("/post-audio-get/")
+async def get_audio():
+
+    audio_input = open("voice.mp3", "rb")
+
+    message_decoded = convert_audio_to_text(audio_input)
+
+    return "Done"
 
 
 # Post bot response
