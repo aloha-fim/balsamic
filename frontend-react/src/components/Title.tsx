@@ -25,7 +25,6 @@ function Title({ setMessages }: Props) {
             })
             .catch((err) => {});
 
-
         setIsResetting(false);
     };
 

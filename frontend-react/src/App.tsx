@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Controller from "./components/Controller";
 
 function App() {
@@ -10,4 +11,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
