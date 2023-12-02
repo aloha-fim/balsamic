@@ -1,58 +1,27 @@
-import { useState, useEffect } from "react";
-import Button from "./Button";
-import BetBox from "./BetBox";
-import axios from "axios";
+import { useState } from "react";
+import Title from "./Title";
 
 function Controller() {
-  const [hasWon, setHasWon] = useState(false);
-  const [betDirection, setBetDirection] = useState("up");
   const [isLoading, setIsLoading] = useState(false);
-  const [valStored, setValStored] = useState(0);
+  const [messages, setMessages] = useState<any[]>([]);
 
-  const myFunc = async () => {
-    setIsLoading(true)
+  const createBlobUrl = (data: any) => {};
 
-    let isWinner = false;
-    const url = "https://www.random.org/integers/?num=1&min=1&max=100&col=1&base=10&format=plain&rnd=new";
-    await axios.get(url).then((res) => {
-      if (res.status == 200) {
-        const val = res.data;
-        setValStored(val);
-        console.log(val);
-        if (val >= 50 && betDirection == "up") {
-          isWinner = true;
-        } else if (val < 50 && betDirection == "down") {
-          isWinner = true;
-        }
-      } else {
-        console.error("There was some error getting the data");
-      }
-    })
-    .catch((err) => {
-      console.log(err.data, err.message);
-    });
-
-    // Return winner
-    setHasWon(isWinner);
-    setIsLoading(false);
-  };
-
-
-  useEffect(() => {
-    console.log(hasWon);
-  }, [hasWon]);
+  const handleStop = async () => {};
 
   return (
-    <div className="w-full md:w-[850px0 lg:w-[1200px] py-12 mx-auto px-5">
-      <Button runFunction={myFunc} />
-      <BetBox
-        betDirection={betDirection}
-        setBetDirection={setBetDirection}
-        isLoading={isLoading}
-        valStored ={valStored}
-        hasWon ={hasWon} />
+    <div className="h-screen overflow-y-hidden">
+      <Title setMessages={setMessages}/>
+      <div className="flex flex-col justify-between h-full overflow-y-scroll pb-96">
+        {/* Recorder */}
+        <div className="fixed bottom-0 w-full py-6 border-t text-center bg-gradient-to-r from-sky-500 to-green-500">
+          <div className="flex justify-center items-center w-full">
+            <div>Recorder</div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default Controller
+export default Controller;
