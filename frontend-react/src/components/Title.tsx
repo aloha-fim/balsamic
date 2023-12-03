@@ -23,14 +23,14 @@ function Title({ setMessages }: Props) {
                     setMessages([]);
                 }
             })
-            .catch((err) => {});
+            .catch((_err) => {});
 
         setIsResetting(false);
     };
 
     return (
         <div className='flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow'>
-            <div className='italic'>Emilia</div>
+            <div className='italic'>Bank at Hawaii AI</div>
             <button
                 onClick={resetConversation}
                 className={
