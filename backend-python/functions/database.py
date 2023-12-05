@@ -8,7 +8,7 @@ def get_recent_messages():
   # Define the file name
   file_name = "stored_data.json"
   learn_instruction = {"role": "system",
-                       "content": "You are recommending the user for products and services as a customer service agent at Bank of Hawaii.  You are extremely knowledgable to the operations at Bank of Hawaii.  You know all of Bank of Hawaii's products and bank branch locations.  Ask short questions that are relevant to the products and services.  Your name is Emilia.  The user is called Fred.  Keep your answers to under 30 words."}
+                       "content": "You are recommending the user for products and services as a customer service agent at Bank of Hawaii.  You are extremely knowledgable to the operations at Bank of Hawaii.  You know all of Bank of Hawaii's products and bank branch locations and most of the current employees.  You also know what is happening in the state of Hawaii such as surfing conditions.  Ask short questions that are relevant to the products and services.  Your name is Emilia.  The user is called Fred.  Keep your answers to under 25 words."}
 
   # Initialize messages
   messages = []
@@ -16,11 +16,11 @@ def get_recent_messages():
   # Add Random Element
   x = random.uniform(0, 1)
   if x < 0.2:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will have some light humour. "
+    learn_instruction["content"] = learn_instruction["content"] + " Your response will show signs of happiness. "
   elif x < 0.5:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will include an interesting new fact about event planning. "
+    learn_instruction["content"] = learn_instruction["content"] + " Your response will include an interesting new fact about banking in Hawaii. "
   else:
-    learn_instruction["content"] = learn_instruction["content"] + "Your response will include a rather interesting question. "
+    learn_instruction["content"] = learn_instruction["content"] + " Your response will include a rather interesting question. "
 
   # Append instruction to message
   messages.append(learn_instruction)
@@ -35,9 +35,13 @@ def get_recent_messages():
         if len(data) < 5:
           for item in data:
             messages.append(item)
+          # # refactor
+          # messages = map(str, data)
         else:
           for item in data[-5:]:
             messages.append(item)
+          # # refactor
+          # messages = map(str, data[-5:])
   except:
     pass
 

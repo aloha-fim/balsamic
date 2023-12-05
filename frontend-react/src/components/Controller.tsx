@@ -42,7 +42,7 @@ function Controller() {
             audio.src = createBlobURL(blob);
 
             // Append to audio
-            const rachelMessage = { sender: "emilia", blobUrl: audio.src };
+            const rachelMessage = { sender: "rachel", blobUrl: audio.src };
             messagesArr.push(rachelMessage);
             setMessages(messagesArr);
 
@@ -105,7 +105,7 @@ function Controller() {
 
           {isLoading && (
             <div className="text-center font-light italic mt-10 animate-pulse">
-              Gimme a few seconds...
+              Aloha. Trying to Answer...
             </div>
           )}
         </div>
