@@ -99,7 +99,7 @@ function Controller() {
 
           {messages.length == 0 && !isLoading && (
             <div className="text-center font-light italic mt-10">
-              Send Emilia a message...
+              Send Rachel a message...
             </div>
           )}
 
